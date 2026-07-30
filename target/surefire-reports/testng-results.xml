@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-07-30T12:36:07 IST" name="Suite" finished-at="2026-07-30T12:36:23 IST" duration-ms="15597">
+    <groups>
+    </groups>
+    <test started-at="2026-07-30T12:36:07 IST" name="Test" finished-at="2026-07-30T12:36:23 IST" duration-ms="15597">
+      <class name="test.browers">
+        <test-method signature="brower()[pri:0, instance:test.browers@54c562f7]" started-at="2026-07-30T12:36:07 IST" name="brower" finished-at="2026-07-30T12:36:23 IST" duration-ms="15573" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- brower -->
+      </class> <!-- test.browers -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
