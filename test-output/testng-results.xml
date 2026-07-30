@@ -2,15 +2,15 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-07-30T12:32:18 IST" name="Default suite" finished-at="2026-07-30T12:32:27 IST" duration-ms="8917">
+  <suite started-at="2026-07-30T14:09:56 IST" name="Default suite" finished-at="2026-07-30T14:10:00 IST" duration-ms="4096">
     <groups>
     </groups>
-    <test started-at="2026-07-30T12:32:18 IST" name="Default test" finished-at="2026-07-30T12:32:27 IST" duration-ms="8917">
+    <test started-at="2026-07-30T14:09:56 IST" name="Default test" finished-at="2026-07-30T14:10:00 IST" duration-ms="4096">
       <class name="test.browers">
-        <test-method signature="brower()[pri:0, instance:test.browers@62379589]" started-at="2026-07-30T12:32:18 IST" name="brower" finished-at="2026-07-30T12:32:27 IST" duration-ms="8886" status="PASS">
+        <test-method signature="test()[pri:0, instance:test.browers@dd05255]" started-at="2026-07-30T14:09:56 IST" name="test" finished-at="2026-07-30T14:10:00 IST" duration-ms="4061" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- brower -->
+        </test-method> <!-- test -->
       </class> <!-- test.browers -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
