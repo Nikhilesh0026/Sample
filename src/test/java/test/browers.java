@@ -16,10 +16,7 @@ public class browers {
 	@Test
     public void test() throws InterruptedException {
 	
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\nkhetmalis\\Downloads\\chromedriver-win64_9342\\chromedriver-win64\\chromedriver.exe");
-    	
-		ChromeOptions options = new ChromeOptions();
-		WebDriver driver = new ChromeDriver(options);
+		WebDriver driver = new ChromeDriver();
 		
 		 driver.get("https://www.google.com");
 		 Thread.sleep(10000);
