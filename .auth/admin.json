@@ -1,0 +1,14 @@
+{
+  "cookies": [],
+  "origins": [
+    {
+      "origin": "https://uatrazorsignapp.practiceleague.com",
+      "localStorage": [
+        {
+          "name": "lastFirmKey",
+          "value": "development-team-test"
+        }
+      ]
+    }
+  ]
+}
