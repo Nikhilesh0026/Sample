@@ -3,6 +3,7 @@ const { test: base, expect } = require('@playwright/test');
 const { RequestPage } = require('../pages/request.page');
 //const {normal} = require('../setup/normal.js');
 const {normalcontractRequest} = require('../data/normalrequest.js');
+const{normal} =require ('../setup/normal.js')
 
 // NEW: a fresh browser for each test
 const test = base.extend({

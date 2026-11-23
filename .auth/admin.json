@@ -5,8 +5,16 @@
       "origin": "https://uatrazorsignapp.practiceleague.com",
       "localStorage": [
         {
+          "name": "lastAuthMode",
+          "value": "STANDARD"
+        },
+        {
           "name": "lastFirmKey",
           "value": "development-team-test"
+        },
+        {
+          "name": "sessionOutUrl",
+          "value": "http://razorsign-intra/ems/Login.aspx"
         }
       ]
     }
