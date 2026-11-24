@@ -1,44 +1,29 @@
 const fs = require('fs');
-const { test: base, expect } = require('@playwright/test');
+const { test, expect } = require('../fixture/fixture.js');
 const { RequestPage } = require('../pages/request.page');
-//const {normal} = require('../setup/normal.js');
-const {normalcontractRequest} = require('../data/normalrequest.js');
-const{normal} =require ('../setup/normal.js')
-
-// NEW: a fresh browser for each test
-const test = base.extend({
-  browser: async ({ playwright }, use) => {
-    const browser = await playwright.chromium.launch();
-    await use(browser);
-    await browser.close();
-  },
-  context: async ({ browser }, use) => {
-    const context = await browser.newContext();
-    await use(context);
-    await context.close();
-  },
-  page: async ({ context }, use) => {
-    await use(await context.newPage());
-  },
-});
-
+const { normalcontractRequest } = require('../data/normalrequest.js');
+const {normal} = require ('../setup/normal.js')
 
 test.describe('Normal user - requests', () => {
   test.use({ storageState: '.auth/normal.json' });
 
-  test.beforeEach(async ({ page }) => {
+  test.beforeEach(async ({context, page, dashboardPage }) => {
     const session = JSON.parse(fs.readFileSync('.auth/normal-session.json', 'utf8'));
-    await page.addInitScript((data) => {
-      for (const [key, value] of Object.entries(data)) {
+    await page.addInitScript((context,data) => {
+      for (const [key, value] of Object.entries(context,data)) {
         sessionStorage.setItem(key, value);
+        context
       }
     }, session);
+
+    await page.goto('/Home');
+    await dashboardPage.closeRequestPopupIfShown();
   });
 
-  test('user can create a contract request', async ({ page }) => {
+  test('normal user can create a contract request', async ({ page,  }) => {
     await page.goto('/Home');
     const requestPage = new RequestPage(page);
     await requestPage.createRequestMandatory(normalcontractRequest);
-   // await expect(page.getByText('Contract Request Added Successfully.')).toBeVisible();
+  
   });
 });

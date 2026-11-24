@@ -1,6 +1,5 @@
 const { test: base, expect } = require('@playwright/test');
 
-// Each test gets its own fresh browser context and page
 const test = base.extend({
   context: async ({ browser }, use) => {
     const context = await browser.newContext();
@@ -10,6 +9,12 @@ const test = base.extend({
   page: async ({ context }, use) => {
     await use(await context.newPage());
   },
+
+   dashboardPage: async ({ page }, use) => {
+    const Dashboard = require('../pages/dashboard');
+    await use(new Dashboard(page));
+  },
+  
 });
 
 module.exports = { test, expect };
