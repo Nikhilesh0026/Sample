@@ -1,31 +1,18 @@
-const fs = require('fs');
 const { test, expect } = require('../fixture/fixture.js');
 const { RequestPage } = require('../pages/request.page');
+const Dashboard = require('../pages/dashboard');
 const { admincontractRequest } = require('../data/adminrequest.js');
-//const{admin} = require('../setup/admin.js');
 
 test.describe('admin user - requests', () => {
-  test.use({ storageState: '.auth/admin.json' });
-
-  test.beforeEach(async ({ page, dashboardPage }) => {
-    const session = JSON.parse(fs.readFileSync('.auth/admin-session.json', 'utf8'));
-    await page.addInitScript((data) => {
-      for (const [key, value] of Object.entries(data)) {
-        sessionStorage.setItem(key, value);
-      }
-    }, session);
-
-    await page.goto('/Home');
+  test('admin user can create a contract request', async ({ loggedInAdminPage }) => {
+    const dashboardPage = new Dashboard(loggedInAdminPage);
     await dashboardPage.closeRequestPopupIfShown();
-  });
 
-  test('admin user can create a contract request', async ({ page }) => {
-    const requestPage = new RequestPage(page);
+    const requestPage = new RequestPage(loggedInAdminPage);
     await requestPage.createRequestMandatory(admincontractRequest);
   });
 
-  test('admin user can open a request from the list', async ({ page }) => {
-    // add steps for the second case here
-    await expect(page).toHaveURL(/Home/);
+  test('admin user can open a request from the list', async ({ loggedInAdminPage }) => {
+    await expect(loggedInAdminPage).toHaveURL(/Home/);
   });
 });
