@@ -4,11 +4,11 @@ require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 
 module.exports = defineConfig({
   testDir: './tests',
-  workers: 1,            // only one worker, so files run one after another
+  workers: 6,            // only one worker, so files run one after another
   fullyParallel: true,  // keep tests inside a file sequential too (this is the default)
   reporter: 'html',
   use: {
-    baseURL: process.env.BASE_URL,
+   baseURL: process.env.BASE_URL,
     trace: 'on-first-retry',
   },
   projects: [
